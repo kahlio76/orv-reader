@@ -1,0 +1,8 @@
+# The book and anything derived from it never go in this repo.
+*.epub
+src-epub/
+data/
+build/chapters.json
+state/
+__pycache__/
+.DS_Store
