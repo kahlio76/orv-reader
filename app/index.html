@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ORV Reader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="soundtrack.css?v=3">
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <button id="menu" class="icon" aria-label="Chapters and search">☰</button>
+    <div class="where">
+      <b id="w-title">ORV Reader</b>
+      <span id="w-sub"></span>
+    </div>
+    <div class="tools">
+      <button id="aa" class="icon" aria-label="Text and theme settings" aria-expanded="false">Aa</button>
+      <button id="theme" class="icon" aria-label="Switch between light and dark"></button>
+    </div>
+  </div>
+  <div class="prog"><div id="prog"></div></div>
+</header>
+
+<div id="settings" class="pop" hidden>
+  <div class="row">
+    <span>Text size</span>
+    <div class="seg"><button id="smaller" aria-label="Smaller text">A−</button><button id="bigger" aria-label="Larger text">A+</button></div>
+  </div>
+  <div class="row">
+    <span>Font</span>
+    <div class="seg" id="seg-font"><button data-v="serif">Serif</button><button data-v="sans">Sans</button></div>
+  </div>
+  <div class="row">
+    <span>Highlights</span>
+    <div class="seg" id="seg-hl"><button data-v="on">On</button><button data-v="off">Off</button></div>
+  </div>
+  <div class="legend" aria-label="Highlight colors">
+    <span class="ent e-constellation">Constellation</span>
+    <span class="ent e-nebula">Nebula</span>
+    <span class="ent e-item">Item</span>
+    <span class="ent e-place">Place</span>
+  </div>
+  <div class="row">
+    <span>Theme</span>
+    <div class="seg" id="seg-theme"><button data-v="auto">Auto</button><button data-v="light">Light</button><button data-v="dark">Dark</button></div>
+  </div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<main>
+  <div id="place" class="place" hidden></div>
+
+  <section id="recap" class="recap" hidden>
+    <div class="recap-top"><h2>Catch me up</h2><small id="recap-sub"></small></div>
+    <div id="recap-out" class="recap-out"></div>
+    <div class="recap-actions">
+      <button data-k="recap" data-c="3">Last 3 chapters</button>
+      <button data-k="recap" data-c="8">Last 8</button>
+      <button data-k="sofar">Story so far</button>
+      <button id="recap-hide" class="dim">Hide</button>
+    </div>
+  </section>
+
+  <article id="chap" class="chap" aria-live="polite"></article>
+
+  <nav class="pager">
+    <button id="prev">← Previous</button>
+    <button id="next">Next →</button>
+  </nav>
+</main>
+
+<aside id="drawer" class="drawer" aria-hidden="true">
+  <div class="tabs">
+    <button data-tab="chapters" class="on">Chapters</button>
+    <button data-tab="search">Search</button>
+    <button id="drawer-close" class="icon x" aria-label="Close">×</button>
+  </div>
+  <div id="tab-chapters" class="tabbody">
+    <input id="filter" type="search" placeholder="Filter by number or title" autocomplete="off">
+    <div id="chlist" class="chlist"></div>
+  </div>
+  <div id="tab-search" class="tabbody" hidden>
+    <input id="q" type="search" placeholder="Search the chapters you've read" autocomplete="off">
+    <div id="q-note" class="note-sm"></div>
+    <div id="q-out" class="chlist"></div>
+  </div>
+</aside>
+<div id="backdrop" class="backdrop" hidden></div>
+
+<button id="pill" class="pill" hidden></button>
+
+<aside id="sheet" class="sheet" hidden role="dialog" aria-labelledby="s-name">
+  <button class="x" id="s-close" aria-label="Close">×</button>
+  <h3 id="s-name"></h3>
+  <div id="s-body" class="s-body"></div>
+  <div id="s-gate" class="gate"></div>
+</aside>
+
+<div id="onboard" class="onboard" hidden>
+  <form id="onboard-form" class="onboard-card">
+    <h2>Where did you stop?</h2>
+    <p>Pick the chapter you want to start from. Search, lookups and recaps will only use what comes before it. Michael first shows up in ch. 314, so your old spot is probably a little after that.</p>
+    <label for="start-ch">Chapter number</label>
+    <input id="start-ch" type="number" min="1" max="551" value="314" inputmode="numeric">
+    <div class="onboard-actions">
+      <button type="submit" class="primary">Start here</button>
+      <button type="button" id="from-start" class="dim">Start from chapter 1</button>
+    </div>
+  </form>
+</div>
+
+<script src="app.js"></script>
+<script src="soundtrack.js?v=7"></script>
+</body>
+</html>

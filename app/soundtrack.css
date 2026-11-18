@@ -1,0 +1,43 @@
+/* Soundtrack card: black and white monochrome, terminal look. Same in light and dark reader themes. */
+.st{--st-bg:#000;--st-ink:#fff;--st-gray:#8a8a8a;--st-line:#333;--st-dim:#1a1a1a;
+  font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5;color:var(--st-ink)}
+.st button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+.st button:focus-visible{outline:1px solid var(--st-ink);outline-offset:2px}
+
+.st-card{position:fixed;z-index:44;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));
+  width:min(330px,calc(100vw - 32px));background:var(--st-bg);border:1px solid var(--st-ink);box-shadow:0 10px 30px rgba(0,0,0,.35);padding:10px 12px 12px}
+.st-head{display:flex;justify-content:space-between;align-items:center;color:var(--st-gray);border-bottom:1px dashed var(--st-line);padding-bottom:6px;margin-bottom:6px}
+.st-head .x{color:var(--st-gray);padding:0 2px}
+.st-head .x:hover{color:var(--st-ink)}
+.st-row{display:flex;gap:8px}
+.st-row .k{color:var(--st-gray);min-width:3.4em}
+.st-track{margin-top:6px;padding:6px 8px;border:1px solid var(--st-line);display:block;width:100%;text-align:left}
+.st-track:hover{border-color:var(--st-ink)}
+.st-track .meta{display:block;color:var(--st-gray);font-size:11px}
+.st-hidden{color:var(--st-gray)}
+.st-actions{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:8px}
+.st-actions button{color:var(--st-gray)}
+.st-actions button:hover,.st-actions button.on{color:var(--st-ink)}
+.st-actions button::before{content:"["}
+.st-actions button::after{content:"]"}
+.st-panel{margin-top:8px;border-top:1px dashed var(--st-line);padding-top:8px;display:flex;flex-direction:column;gap:6px}
+.st-panel .opts{display:flex;flex-wrap:wrap;gap:4px 10px}
+.st-panel .opts button{color:var(--st-gray)}
+.st-panel .opts button:hover,.st-panel .opts button.on{color:var(--st-ink);text-decoration:underline}
+.st-msg{color:var(--st-gray);font-size:11px}
+
+.st-chip{position:fixed;z-index:44;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));
+  background:var(--st-bg);border:1px solid var(--st-ink);padding:6px 10px;max-width:calc(100vw - 32px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* section inside the Aa popover */
+.st-settings{border-top:1px solid var(--rule);margin:4px -14px -6px;padding:10px 14px 12px;background:#000;border-radius:0 0 13px 13px}
+.st-settings .t{color:var(--st-gray);margin-bottom:6px}
+.st-settings .r{display:flex;justify-content:space-between;align-items:center;padding:3px 0}
+.st-settings .r button{color:var(--st-gray)}
+.st-settings .r button.on{color:var(--st-ink);text-decoration:underline}
+.st-settings .status{color:var(--st-gray);font-size:11px;margin-top:6px;white-space:pre-wrap}
+.st-settings a,.st-settings .link{color:var(--st-ink);text-decoration:underline}
+
+@media (max-width:640px){
+  .st-card{left:16px;right:16px;width:auto;bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+}
